@@ -1,9 +1,10 @@
-class Terminal {
-
+class TempViewer {
+    
     constructor() {
         this.port = null;
         this.reader = null;
         this.lineDestination = null;
+        this.partLine = "";
     }
 
     async connectToSerialPort() {
@@ -39,6 +40,29 @@ class Terminal {
         var text = new TextDecoder("utf-8").decode(bytes);
         this.lineDestination(text);
         return;
+    }
+
+    handleIncomingLine(line) {
+        if (this.lineDestination != null) {
+            this.lineDestination(line);
+        }
+    }
+
+    handleIncomingBytes(bytes) {
+        var text = new TextDecoder("utf-8").decode(bytes);
+        var newBuffer = this.partLine + text;
+
+        if (newBuffer.includes('\n')) {
+            let lines = newBuffer.split('\n');
+            let limit = lines.length - 1;
+            for (let i = 0; i < limit; i++) {
+                handleIncomingLine(lines[i]);
+            }
+            this.partLine = lines[limit];
+        }
+        else {
+            this.partLine = this.partLine + text;
+        }
     }
 
     async pumpReceivedCharacters() {

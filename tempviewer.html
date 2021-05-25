@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Temperature Viewer</title>
+    <link rel="stylesheet" href="scss/tempviewer.css">
+    <script src="js/tempViewer/viewer.js"></script>
+</head>
+
+<body onload="doOnLoad();">
+    <span class="menuHeading">&#127777;&#65039; Temperature Viewer</span><br>
+    <span class="tempView" id="display"></span>
+    <p>
+        <button class="menuButton" onclick="doConnect();">Connect</button>
+        <button class="menuButton" onclick="doDisconnect();">Disconnect</button>
+    </p>
+
+    <script>
+        var tempViewer = null;
+
+        function handleIncomingLine(text) {
+            let value;
+            console.log(text);
+            try{
+                value=JSON.parse(text);
+                let view = document.getElementById('display');
+                view.textContent=value.temp;
+            }
+            catch {}
+            console.log(text);
+        }
+
+        async function doOnLoad() {
+            if (!"serial" in navigator) {
+                alert("This browser does not support serial communications. Try Edge or Chrome");
+                return;
+            }
+            tempViewer = new TempViewer();
+        }
+
+        async function doConnect() {
+            let reply = await tempViewer.connectToSerialPort();
+
+            if (reply != "") {
+                alert(reply);
+                return;
+            }
+            tempViewer.startSerialPump(handleIncomingLine);
+        }
+
+        async function doDisconnect() {
+            await tempViewer.disconnect();
+        }
+
+        async function doSend() {
+            let input = document.getElementById('input');
+            let text = input.value;
+            text = text + '\n\r';
+            await tempViewer.sendText(text);
+            input.value = "";
+        }
+    </script>
+</body>
+</html>
