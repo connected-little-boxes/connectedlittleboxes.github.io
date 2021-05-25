@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Simpleterm</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="terminal.js"></script>
+</head>
+
+<body onload="doOnLoad();">
+    <p class="menuHeading">&#128421;&#65039; Simpleterm</h1>
+    <p>
+        <button class="menuButton" onclick="doConnect();">Connect</button>
+        <button class="menuButton" onclick="doDisconnect();">Disconnect</button>
+    </p>
+    <p>
+        <textarea class="terminal" rows="38" cols="120" id="output"></textarea>
+    </p>
+    <p>
+        <textarea class="terminal" rows="1" cols="120" id="input" "></textarea>
+    </p>
+    <p>
+        <button class=" menuButton" onclick="doSend();">Send</button>
+    </p>
+
+    <script>
+        var terminal = null;
+
+        function handleIncomingLine(text) {
+            let output = document.getElementById('output');
+            output.value = output.value + text;
+            output.scrollTop = output.scrollHeight;
+        }
+
+        async function doOnLoad() {
+            if (!"serial" in navigator) {
+                alert("This browser does not support serial communications. Try Edge or Chrome");
+                return;
+            }
+            terminal = new Terminal();
+        }
+
+        async function doConnect() {
+            let reply = await terminal.connectToSerialPort();
+
+            if (reply != "") {
+                alert(reply);
+                return;
+            }
+            terminal.startSerialPump(handleIncomingLine);
+        }
+
+        async function doDisconnect() {
+            await terminal.disconnect();
+        }
+
+        async function doSend() {
+            let input = document.getElementById('input');
+            let text = input.value;
+            text = text + '\n\r';
+            await terminal.sendText(text);
+            input.value = "";
+        }
+    </script>
+</body>
+
+</html>

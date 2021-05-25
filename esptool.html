@@ -173,7 +173,7 @@ End Fixed Navigation
             <button class="menuButton" onclick="doConnect();">Connect Device</button>
           </p>
           <p>A dialog box like the one on the right will pop up inviting you to select a device to program.</p>
-          <p>I'm using a device connected to COM9. The number will vary, depending on which socket you plug the device
+          <p>I'm using a device connected to COM5. The number will vary, depending on which socket you plug the device
             into.
             If you are not using Windows 10 the ports won't have a number, instead there might be some strange names.
             You can try each one in turn, reloading the page between attempts.
@@ -187,7 +187,6 @@ End Fixed Navigation
     </div>
   </section>
 
-
   <section class="about-shot-info section-sm bg-gray">
     <div class="container">
       <div class="row">
@@ -196,6 +195,32 @@ End Fixed Navigation
           <p>Now that you are connected you can start the process. Press the Flash button when you are ready.</p>
           <p>
             <button class="menuButton" onclick="doFlash();">Flash</button>
+          </p>
+          <p>Note that this will take a while. The log window will show the progress.</p>
+          <p>If the process stops at the 'sync' part this might be because your device has not reset.
+            You can try pressing the reset button on your device, reloading this page in your browser and trying again.
+          </p>
+          <p>We've not tested the process with every possible ESP device, and some don't respond to our reset signals.
+            However, if you are using a Wemos device
+            it should just work.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <h2>Log Window</h2>
+          <textarea class="logOutput" rows="15" cols="60" id="logOutput"></textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-shot-info section-sm ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mt-20">
+          <h2>Talk to your device</h2>
+          <p>Now that you have your own Connected Little Box, it's time to have a chat with it. Press the Chat button below</p>
+          <p>
+            <button class="menuButton" onclick="doTerminal();">Chat</button>
           </p>
           <p>Note that this will take a while. The window on the right should show the progress.</p>
           <p>If the terminal stops at the 'sync' part of the process this might be because your device has not reset.
@@ -207,11 +232,14 @@ End Fixed Navigation
           </p>
         </div>
         <div class="col-md-6">
-          <textarea class="logOutput" rows="20" cols="60" id="logOutput"></textarea>
+          <h2>Terminal Window</h2>
+          <textarea class="logOutput" rows="20" cols="60" id="terminal" onkeypress="doKeyPress();""></textarea>
         </div>
       </div>
     </div>
   </section>
+
+
 
   <footer id="footer" class="bg-one">
     <div class="top-footer">
@@ -279,7 +307,6 @@ End Fixed Navigation
   <script src="js/esptool/SerialManager.js"></script>
   <script src="js/esptool/stubs.js"></script>
 
-
   <!-- Custom js -->
   <script src="js/script.js"></script>
 
@@ -294,6 +321,12 @@ End Fixed Navigation
       output.value = output.value + message + '\n';
       output.scrollTop = output.scrollHeight;
     }
+
+      function addTextToTerminal(text) {
+        let output = document.getElementById('terminal');
+        output.value = output.value + text;
+        output.scrollTop = output.scrollHeight;
+      }
 
     async function connect()
     {
@@ -339,6 +372,26 @@ End Fixed Navigation
 
     async function doConnect() {
       connect();
+    }
+
+    async function doTerminal(){
+
+      console.log("Starting terminal..");
+
+      if (!connected) {
+        let result = await connect();
+        if(!result){
+          return;
+        }
+      }
+
+      await device.startTerminal(addTextToTerminal);
+    }
+
+    async function doKeyPress(){
+        var key = window.event.keyCode;
+        await device.writeUint8ToTerminal(key);
+        return false;
     }
 
   </script>

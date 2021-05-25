@@ -19,7 +19,7 @@ class ESPManager {
         }
         else {
             return {worked:false,message:message };
-        }
+        } 
         return {worked:true, message:"Connected to a serial port"};
     }
 
@@ -70,5 +70,14 @@ class ESPManager {
     {
         let result = await this.esp.flashImage(image,address);
         return result;
+    }
+
+    async startTerminal(messageReceived){
+        await this.serialManager.startTerminal(messageReceived);
+    }
+
+    async writeUint8ToTerminal(val) {
+        let valArray = new Uint8Array([val]);
+        this.serialManager.writeUint8Array(valArray);
     }
 }
