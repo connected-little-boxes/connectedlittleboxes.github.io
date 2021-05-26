@@ -63,6 +63,10 @@ class ESPManager {
 
         await this.serialManager.hardReset();
 
+        this.logFunction('Closing the serial connection');
+
+        await this. serialManager.closeSerialPort();
+
         return { worked: true, message: "Flash completed OK" };
     }
 
