@@ -3,7 +3,7 @@ class Terminal {
     constructor() {
         this.port = null;
         this.reader = null;
-        this.lineDestination = null;
+        this.handleIncomingText = null;
     }
 
     async connectToSerialPort() {
@@ -37,7 +37,7 @@ class Terminal {
 
     handleIncomingBytes(bytes) {
         var text = new TextDecoder("utf-8").decode(bytes);
-        this.lineDestination(text);
+        this.handleIncomingText(text);
         return;
     }
 
@@ -76,7 +76,7 @@ class Terminal {
 
     async startSerialPump(destination) {
         this.keepReading = true;
-        this.lineDestination = destination;
+        this.handleIncomingText = destination;
         await this.pumpReceivedCharacters();
         return "Serial disconnected";
     }
