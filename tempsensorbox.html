@@ -12,7 +12,7 @@
 
 	<meta name="author" content="Rob Miles">
 
-	<title>Connected Little Boxes 3D Server</title>
+	<title>Connected Little Boxes Temperature Sensor</title>
 
 	<!-- Mobile Specific Meta
   ================================================== -->
@@ -115,7 +115,7 @@ End Fixed Navigation
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2>Server</h2>
+					<h2>Temperature Sensor</h2>
 				</div>
 			</div>
 		</div>
@@ -125,22 +125,69 @@ End Fixed Navigation
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 mt-20">
-					<h2>Backend Support</h2>
-					<p>Server support for a Connected Little Box makes things even more interesting. You don't need it. A box will quite happily talk to another box with
-						no server needed. But if you want to manage and deploy your boxes you might find it useful to have a single point of control. That's what the 
-						server is all about. 
-					</p>
-					<p>The server software is still under development. That's software-speak for 'It seems to work for us but we want to make sure it will work for you.' We are 
-						running our own little server at Connected Humber. If you want to join in with us and help us build the system, head to the contacts and get in touch with us. 
+					<h2>Browser connected temperature sensor</h2>
+					<p>Create sensor that is programmed from the web and sends values directly into your browser. This is an ideal way to get started with Connected Little Boxes.
+						You'll need an ESP32 or ESP8266 and a BME280 device. Full details of this project are in Hackspace magazine.
 					</p>
 				</div>
 				<div class="col-md-6">
-					<img class="img-fluid" src="images/server/browser.png">
+					<img class="img-fluid" src="images/hackspace/sensor.jpg">
 				</div>
 			</div>
 		</div>
 	</section>
 	
+	<section class="about-shot-info section-sm bg-gray">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 mt-20">
+					<h2>Setup your sensor</h2>
+					<p>You can find the getting started page <a href="https://www.connectedlittleboxes.com/gettingstarted.html">here</a>
+					</p>
+				</div>
+				<div class="col-md-6">
+					<img class="img-fluid" src="images/hackspace/flash.png">
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="about-shot-info section-sm">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 mt-20">
+					<h2>Simpleterm</h2>
+					<p>You can find the simple terminal program <a href="https://www.connectedlittleboxes.com/simpleterm.html">here</a>
+					</p>
+					<p>The command to configure a box to produce JSON formatted temperature information is:</p>
+					<p><pre>{"process":"console","command":"reportjson","text":"starting","sensor":"bme280","trigger":"tempsec","attr":"temp","store":"start","id":"temp"}</pre></p>
+					<p>You can cut this text out of this page and paste it directly into the send window of Simpleterm.</p>
+				</div>
+				<div class="col-md-6">
+					<img class="img-fluid" src="images/hackspace/simpleterm.png">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="about-shot-info section-sm bg-gray">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 mt-20">
+					<h2>View the temperature</h2>
+					<p>You can find the temperature viewing page <a href="https://www.connectedlittleboxes.com/tempviewer.html">here</a>
+					</p>
+				</div>
+				<div class="col-md-6">
+					<img class="img-fluid" src="images/hackspace/temp.png">
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
 	<footer id="footer" class="bg-one">
 		<div class="top-footer">
 		  <div class="container">
