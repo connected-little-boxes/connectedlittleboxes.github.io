@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html>
+<!--<![endif]-->
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Connected Little Boxes Index">
+
+  <meta name="author" content="Rob Miles">
+
+  <title>Connected Little Boxes</title>
+
+  <!-- Mobile Specific Meta
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+
+  <!-- CSS
+  ================================================== -->
+  <!-- Themefisher Icon font -->
+  <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Lightbox.min css -->
+  <link rel="stylesheet" href="plugins/lightbox2/dist/css/lightbox.min.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- Slick Carousel -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body id="body">
+
+  <!--
+  Start Preloader
+  ==================================== -->
+  <div id="preloader">
+    <div class='preloader'>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <!--
+  End Preloader
+  ==================================== -->
+
+  
+
+  <!--
+Fixed Navigation
+==================================== -->
+<header class="navigation fixed-top">
+    <div class="container">
+      <!-- main nav -->
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <!-- logo -->
+        <a class="navbar-brand logo" href="index.html">
+          <img class="logo-default" src="images/logo.png" alt="logo" />
+          <img class="logo-white" src="images/logo-white.png" alt="logo" />
+        </a>
+        <!-- /logo -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item ">
+              <a class="nav-link" href="overview.html">Overview</a>
+            </li>
+            <li class="nav-item dropdown ">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Documentation
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="gettingstarted.html">Getting Started</a>
+                <a class="dropdown-item" href="electronics.html">Electronics</a>
+                <a class="dropdown-item" href="boxes.html">Making boxes</a>
+                <a class="dropdown-item" href="server.html">Server Software</a>
+              </div>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="news.html">News</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="nameinlights.html">Name in lights</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- /main nav -->
+    </div>
+  </header>
+  <!--
+End Fixed Navigation
+==================================== -->
+
+
+<section class="single-page-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Name in lights</h2>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- blog details part start -->
+<section class="blog-details section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <article class="post">
+          <div id="Name in " class="post-image">
+            <img class="img-fluid w-100" src="projects/proj01nameinlights/images/rob.png" alt="name in lights box">
+          </div>
+          <!-- Post Content -->
+          <div class="post-content">
+            <h3>Name in lights</h3>
+            <p>A Name In Lights box is a custom made enclosure and front panel that can put your name, 
+              or any word you fancy, in lights. The box can contain one or more rows of panels each of which 
+              is lit by a single NeoPixel. The boxes and front panels are designed to be 3D printed and then glued together. The current
+              designs use a Wemos D1 Mini device to control the lights. You can set the colour of each light individually, or you can set 
+              the colour of the entire light with a single command.</p>
+            <p id="gettingstarted">You can set the colours to a random set of colours which move over the lights to give a pleasing effect. You can also create 
+              timed events to change the colour and pattern on the lights. If you have more than one Connected Little Box you can change
+              the colour and pattern on the lights from another box.    
+            </p>
+            <h3>Getting started</h3>
+
+            <!-- blockquote -->
+            <p>You can follow the Getting Started instructions <a href="gettingstarted.html">here</a> to load the latest version of the 
+            Connected Little Boxes software onto your machine and set it up.</p>
+            <p>When the light starts up it will display a pattern of red and green blocks as each of the interal services start up. 
+              Then it will display moving red, green and blue lights that travel across the pixels at different speeds, overlapping and 
+            mixing their colours as they do.</p>
+           <p>You use the Simpleterm program to configure your lights. Make sure that the light unit is plugged into your PC before you start. Then Click
+             the button below to create a Simpleterm tab in your browser. 
+           </p>
+           <p id="displaysize">
+            <button class="menuButton" onclick="doOpenTerminalTab();">Create Simpleterm tab</button>
+          </p>
+          <p>Then click the Connect button in Simpleterm and select the USB connection for your
+            light. </p>
+            <h3>Setting the pixel size of your light</h3>
+            <p>f you want the light to
+              display properly you will have to configure the width and height of the pixel display. There are two settings that determine 
+              the width and height of a light:
+            </p>
+            <pre>
+noofxpixels=12
+noofypixels=1
+            </pre>
+            <p>You can use these commands in Simpleterm to set the width and height of your light.</p>
+            </div>
+        </article>
+      </div>
+      
+      <div class="col-lg-4">
+        <!-- sidebar -->
+        <aside class="sidebar" style="position:fixed">
+          <div class="widget-categories widget">
+            <!-- widget categories list -->
+            <ul class="widget-categories-list">
+              <li>
+                <a href="#gettingstarted">Getting Started</a>
+              </li>
+              <li>
+                <a href="#displaysize">Setting Display Size</a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- blog details part end -->
+
+ 
+<footer id="footer" class="bg-one">
+	<div class="top-footer">
+	  <div class="container">
+		<div class="row">
+		  <div class="col-sm-3 col-md-3 col-lg-3">
+			<h3>about</h3>
+			<p>Connected Little Boxes are a community outreach project from Connected Humber CIC.</p>
+		  </div>
+		  <!-- End of .col-sm-3 -->
+		  <div class="col-sm-3 col-md-3 col-lg-3">
+			<ul>
+			  <li>
+				<h3>Quick Links</h3>
+			  </li>
+			  <li><a href="https://github.com/connected-little-boxes">Connected Little Boxes on GitHub  </a></li>
+			  <li><a
+				  href="https://mattermost.connectedhumber.org/default/channels/connected-little-boxes">Connected Little Boxes on MatterMost</a>
+			  </li>
+			  <li><a href="mailto:connectedlittleboxes@robmiles.com">email us</a>
+			  </li>
+				</ul>
+		  </div>
+		  <!-- End of .col-sm-3 -->
+		</div>
+	  </div> <!-- end container -->
+	</div>
+	<div class="footer-bottom">
+	  <h5>Copyright 2021. All rights reserved.</h5>
+	</div>
+  </footer> <!-- end footer -->
+
+<!-- end Footer Area
+========================================== -->
+
+<!-- 
+Essential Scripts
+=====================================-->
+<!-- Main jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Google Map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+<script src="plugins/google-map/gmap.js"></script>
+
+<!-- Form Validation -->
+<script src="plugins/form-validation/jquery.form.js"></script>
+<script src="plugins/form-validation/jquery.validate.min.js"></script>
+
+<!-- Bootstrap4 -->
+<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- Parallax -->
+<script src="plugins/parallax/jquery.parallax-1.1.3.js"></script>
+<!-- lightbox -->
+<script src="plugins/lightbox2/dist/js/lightbox.min.js"></script>
+<!-- Owl Carousel -->
+<script src="plugins/slick/slick.min.js"></script>
+<!-- filter -->
+<script src="plugins/filterizr/jquery.filterizr.min.js"></script>
+<!-- Smooth Scroll js -->
+<script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
+
+<!-- Custom js -->
+<script src="js/script.js"></script>
+<script>
+    function doOpenTerminalTab() {
+      var url = 'https://www.connectedlittleboxes.com/simpleterm.html';
+      window.open(url, '_blank');
+    }
+</script>
+
+</body>
+
+</html>

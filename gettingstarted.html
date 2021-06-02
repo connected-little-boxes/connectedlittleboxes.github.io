@@ -38,7 +38,7 @@
 
 </head>
 
-<body id="body">
+<body id="body" onload="doCheckBrowser();">
 
   <!--
   Start Preloader
@@ -60,53 +60,54 @@
   <!--
 Fixed Navigation
 ==================================== -->
-<header class="navigation fixed-top">
-  <div class="container">
-    <!-- main nav -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <!-- logo -->
-      <a class="navbar-brand logo" href="index.html">
-        <img class="logo-default" src="images/logo.png" alt="logo" />
-        <img class="logo-white" src="images/logo-white.png" alt="logo" />
-      </a>
-      <!-- /logo -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navigation">
-        <ul class="navbar-nav ml-auto text-center">
-          <li class="nav-item ">
-            <a class="nav-link" href="overview.html">Overview</a>
-          </li>
-          <li class="nav-item dropdown ">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Documentation
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="gettingstarted.html">Getting Started</a>
-              <a class="dropdown-item" href="electronics.html">Electronics</a>
-              <a class="dropdown-item" href="boxes.html">Making boxes</a>
-              <a class="dropdown-item" href="server.html">Server Software</a>
-            </div>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="news.html">News</a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="nameinlights.html">Name in lights</a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <!-- /main nav -->
-  </div>
-</header>
-<!--
+  <header class="navigation fixed-top">
+    <div class="container">
+      <!-- main nav -->
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <!-- logo -->
+        <a class="navbar-brand logo" href="index.html">
+          <img class="logo-default" src="images/logo.png" alt="logo" />
+          <img class="logo-white" src="images/logo-white.png" alt="logo" />
+        </a>
+        <!-- /logo -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item ">
+              <a class="nav-link" href="overview.html">Overview</a>
+            </li>
+            <li class="nav-item dropdown ">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Documentation
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="gettingstarted.html">Getting Started</a>
+                <a class="dropdown-item" href="projects.html">Projects</a>
+                <a class="dropdown-item" href="electronics.html">Electronics</a>
+                <a class="dropdown-item" href="boxes.html">Making boxes</a>
+                <a class="dropdown-item" href="server.html">Server Software</a>
+              </div>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="news.html">News</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="nameinlights.html">Name in lights</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- /main nav -->
+    </div>
+  </header>
+  <!--
 End Fixed Navigation
 ==================================== -->
 
@@ -120,34 +121,13 @@ End Fixed Navigation
     </div>
   </section>
 
-  <section class="about-shot-info section-sm bg-gray">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mt-20">
-          <h2>Get a Chip</h2>
-          <p>The first thing you will need is micro-controller. You can use the ESP8266 or the ESP32. These are
-            available on lots of different
-            boards, we suggest the WEMOS D1 mini if you want an ESP8266 or the WEMOS D1 ESP32 if you want the ESP32. You
-            can find
-            these devices from suppliers such as <a href="https://www.aliexpress.com/">Ali Express.</a> </p>
-        </div>
-        <div class="col-md-6">
-          <img class="img-fluid" src="images/getStarted/esp32andesp8266.jpg" alt="">
-        </div>
-      </div>
-    </div>
-  </section>
-
-
   <section class="about-shot-info section-sm">
     <div class="container">
       <div class="row">
         <div class="col-md-6 mt-20">
           <h2>Choose your Browser</h2>
-          <p>The download process uses browser features that are only available on the Chromium platform. If you are not
-            using such a browser (Google Chrome and Microsoft Edge are the most popular ones) you will need to
-            install one. </p>
-          <p>I'm a big fan of Microsoft Edge which you can get <a href="https://www.microsoft.com/en-us/edge">here.</a>
+          <p id="browsermessage"></p>
+          <p>If you need Microsoft Edge you can find it <a href="https://www.microsoft.com/en-us/edge">here.</a>
           </p>
         </div>
         <div class="col-md-6">
@@ -158,6 +138,28 @@ End Fixed Navigation
   </section>
 
   <section class="about-shot-info section-sm bg-gray">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mt-20">
+          <h2>Get a Chip</h2>
+          <p>The next thing you will need is micro-controller. You can use the ESP8266 or the ESP32. These are
+            available on lots of different
+            boards, we suggest the WEMOS D1 mini if you want an ESP8266 or the WEMOS D1 ESP32 if you want the ESP32. You
+            can find
+            these devices from suppliers such as <a href="https://www.aliexpress.com/">Ali Express.</a>
+          <p>If you are using a Name In Lights device it will already have a processor fitted and you can just connect
+            it.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img class="img-fluid" src="images/getStarted/esp32andesp8266.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="about-shot-info section-sm">
     <div class="container">
       <div class="row">
         <div class="col-md-6 mt-20">
@@ -178,7 +180,7 @@ End Fixed Navigation
     </div>
   </section>
 
-  <section class="about-shot-info section-sm">
+  <section class="about-shot-info section-sm bg-gray">
     <div class="container">
       <div class="row">
         <div class="col-md-6 mt-20">
@@ -204,7 +206,7 @@ End Fixed Navigation
     </div>
   </section>
 
-  <section class="about-shot-info section-sm bg-gray">
+  <section class="about-shot-info section-sm">
     <div class="container">
       <div class="row">
         <div class="col-md-6 mt-20">
@@ -229,34 +231,79 @@ End Fixed Navigation
     </div>
   </section>
 
-  <section class="about-shot-info section-sm ">
+  <section class="about-shot-info section-sm bg-gray">
     <div class="container">
       <div class="row">
         <div class="col-md-6 mt-20">
-          <h2>Talk to your device</h2>
-          <p>Now that you have your own Connected Little Box, it's time to have a chat with it. Press the Chat button
-            below to open our Simpleterm page:</p>
-          <p>
-            <button class="menuButton" onclick="doTerminal();">Chat</button>
+          <h2>Configure your device</h2>
+          <p>You can do all the configuration from this terminal. You type a command and send it to the box which then acts on the command. 
+            There are commands to store setting values in a box
+            and also commands to tell a box what to do in response to an event. Press Connect to connect the terminal to your box.
           </p>
-					<h2>Configure your device</h2>
-					<p>Once you have your box running you can start to configure it. The first thing you need to do is get your box connected to WiFi and then to an MQTT server. Then you 
-						can give the box a personality using simple commands that tell it what to do when. 
-						<p>Want a green light? That's fine. Want a clock? That's fine too. Want a remote controlled
-					alarm? You'll need two boxes, but it is easy to set up and our documentation will show you how. </p>
-					
-					<p>Talking of documentation, take a look 
-					<a href="https://github.com/connected-little-boxes/box-code/blob/main/doc/Connected%20Little%20Box%20Reference.pdf">here</a> for complete documentation. And keep an eye out for
-					our video tutorials which are coming soon.</p>
+          <p>
+            <button class="menuButton" onclick="doTerminal();">Connect</button>
+          </p>
+          <h2>Setup WiFi</h2>
+          <p>To connect a box to your WiFi you need to set the name of the access point and the password for the network. You do this 
+            by assiging values to two settings:
+          </p>
+          <pre>
+            wifissid1=yourWiFiSSid
+            wifipwd1=yourWiFipassword
+          </pre>
+          <p>
+            These credentials will be stored securely in the box.
+          </p>
+          <h2>Setup MQTT</h2>
+          <p>If you want your box to be able to connect to other boxes you will have to enter some MQTT creditials. You can use
+            the oppen HiveMQTT server by making the following setting:
+          </p>
+          <pre>
+            mqtthost=broker.hivemq.com
+          </pre>
+          <p>
+            These credentials will be stored securely in the box.
+          </p>
+          <h2>Restart the box</h2>
+          <p>Once you have entered these settings you can restart your box so that they take effect.
+          </p>
+          <pre>
+            restart
+          </pre>
+
+
         </div>
         <div class="col-md-6">
-					<a href="https://github.com/connected-little-boxes/box-code/blob/main/doc/Connected%20Little%20Box%20Reference.pdf">
-            <img class="img-fluid" src="images/getStarted/Manual.png" alt=""> </a>
-          </div>
+          <h2>Box output</h2>
+          <textarea class="logOutput" rows="30" cols="60" id="terminalOutput" onkeypress="doTerminalOutputKeypress();"></textarea>
+          <h2>Your input</h2>
+          <textarea class="logOutput" rows="1" cols="60" id="terminalInput" onkeypress="doTerminalInputKeypress(event);"></textarea>
+          <p>
+            <button class="menuButton" onclick="doSend();">Send</button>
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
+  <section class="about-shot-info section-sm">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mt-20">
+          <h2>What to do next</h2>
+          <p>Congratulations. You now have a Connected Little Box that is connected to your network. For ideas of what to do with it, take a 
+            look in our projects folder <a href="projects.html">here</a>.
+          </p>
+          <p>You can find a complete user manual for all the commands you can use with your Connected Little Box 
+            <a href="https://github.com/connected-little-boxes/box-code/blob/main/doc/Connected%20Little%20Box%20Reference.pdf">here.</a></p>
+        </div>
+        <div class="col-md-6">
+          <a href="https://github.com/connected-little-boxes/box-code/blob/main/doc/Connected%20Little%20Box%20Reference.pdf">
+            <img class="img-fluid" src="images/getStarted/Manual.png" alt=""> </a>        
+          </div>
+      </div>
+    </div>
+  </section>
 
   <footer id=" footer" class="bg-one">
     <div class="top-footer">
@@ -323,6 +370,8 @@ End Fixed Navigation
   <script src="js/esptool/ESP8266.js"></script>
   <script src="js/esptool/SerialManager.js"></script>
   <script src="js/esptool/stubs.js"></script>
+  <script src="js/simpleterm/terminal.js"></script>
+
 
   <!-- Custom js -->
   <script src="js/script.js"></script>
@@ -332,6 +381,7 @@ End Fixed Navigation
 
     var device = null;
     var connected = false;
+    var terminal = null;
 
     function addLineToLog(message) {
       let output = document.getElementById('logOutput');
@@ -356,11 +406,22 @@ End Fixed Navigation
 
       if (!worked) {
         alert(message);
+        connected=false;
         return false;
       }
       else {
         connected = true;
         return true;
+      }
+    }
+    
+    function doTerminalOutputKeypress(){
+      alert("Type your input into the window below the terminal output");
+    }
+
+    async function doTerminalInputKeypress(event){
+      if (event.keyCode == 13) {
+        await doSend();
       }
     }
 
@@ -384,15 +445,54 @@ End Fixed Navigation
       if (!worked) {
         alert(message);
       }
+      connected=false;
     }
 
     async function doConnect() {
       connect();
     }
 
+    function handleIncomingText(text) {
+      let output = document.getElementById('terminalOutput');
+      output.value = output.value + text;
+      output.scrollTop = output.scrollHeight;
+    }
+
     async function doTerminal() {
-      var url = 'https://www.connectedlittleboxes.com/simpleterm.html';
-      window.open(url, '_blank');
+      if (terminal == null) {
+        terminal = new Terminal();
+      }
+      let reply = await terminal.connectToSerialPort();
+
+      if (reply != "") {
+        alert(reply);
+        return;
+      }
+      terminal.startSerialPump(handleIncomingText);
+      handleIncomingText("Terminal connected\n");
+    }
+
+    async function doSend() {
+      if (terminal == null) {
+        await doTerminal();
+      }
+      let input = document.getElementById('terminalInput');
+      let text = input.value;
+      text = text + '\n\r';
+      await terminal.sendText(text);
+      input.value = "";
+    }
+
+    async function doCheckBrowser() {
+      let para = document.getElementById("browsermessage");
+      if ("serial" in navigator) {
+        this.port = null;
+        para.textContent = "This browser supports serial connection. Connect your device using a USB cable to begin programming it.";
+      }
+      else {
+        para.textContent = "This browser does not support serial connection. You will have to download a browser based on the Chromium platform"
+        "We suggest Microsoft Edge or Google Chrome.";
+      }
     }
 
   </script>

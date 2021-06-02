@@ -14,10 +14,11 @@
         <button class="menuButton" onclick="doDisconnect();">Disconnect</button>
     </p>
     <p>
-        <textarea class="terminal" rows="20" cols="120" id="output"></textarea>
+        <textarea class="terminal" rows="20" cols="120" id="output" onkeypress="doTerminalOutputKeypress();"></textarea>
     </p>
     <p>
-        <textarea class="terminal" rows="1" cols="120" id="input" "></textarea>
+        <textarea class="terminal" rows="1" cols="120" id="input"
+            onkeypress="doTerminalInputKeypress(event);"></textarea>
     </p>
     <p>
         <button class=" menuButton" onclick="doSend();">Send</button>
@@ -61,6 +62,16 @@
             await terminal.sendText(text);
             input.value = "";
         }
+
+        function doTerminalOutputKeypress() {
+            alert("Type your input into the window below the terminal output");
+        }
+        async function doTerminalInputKeypress(event) {
+            if (event.keyCode == 13) {
+                await doSend();
+            }
+        }
     </script>
 </body>
+
 </html>
