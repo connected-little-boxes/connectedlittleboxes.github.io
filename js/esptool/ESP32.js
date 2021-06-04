@@ -67,6 +67,7 @@ class ESP32ROM extends ESPToolJS {
 
     constructor(serialManager, logFunction) {
         super(serialManager, logFunction);
+        this.logFunction("Starting ESP32");
         this.stub=esp32rom_stub;
     }
 

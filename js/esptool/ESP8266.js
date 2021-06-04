@@ -44,6 +44,7 @@ class ESP8266ROM extends ESPToolJS {
 
     constructor(serialManager, logFunction) {
         super(serialManager, logFunction);
+        this.logFunction("Starting ESP8266");
         this.stub = esp8266_stub;
     }
 

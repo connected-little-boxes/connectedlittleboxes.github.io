@@ -158,6 +158,12 @@ class SerialManager {
 
 
   async sendBytes(bytes) {
+    let buffer = "";
+    let limit = bytes.length<10?bytes.length:10;
+    for(let i=0;i<limit;i++){
+      buffer = buffer + bytes[i].toString(10)+":"+bytes[i].toString(16)+"  ";
+    }
+    console.log(`Sending:${buffer}...`);
     const writer = this.port.writable.getWriter();
     await writer.write(bytes);
     writer.releaseLock();

@@ -79,7 +79,7 @@ class ESPToolJS {
     constructor(serialManager, logFunction) {
         this.serialManager = serialManager;
         this.logFunction = logFunction;
-        this.logMessage("Starting ESP");
+        this.logFunction("Starting ESPTool");
     }
 
     // packs values into a 
