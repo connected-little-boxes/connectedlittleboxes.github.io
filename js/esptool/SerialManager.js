@@ -2,13 +2,18 @@ class SerialManager {
 
   constructor(logFunction) {
     this.reader = null;
+    this.readPromise = null;
     this.logFunction = logFunction;
     this.lineBuffer = [];
+    this.partialPacket = null;
     this.messageReceiver = null;
+    this.timeout = 1000;
   }
 
   flushbuffer() {
+    console.log("Flushing input buffer");
     this.lineBuffer = [];
+    this.partialPacket = null;
   }
 
 
@@ -35,24 +40,67 @@ class SerialManager {
     let partialPacket = null;
     let inEscape = false;
     let mostRecentMessage = null;
+    let timeout = false;
 
-    while (this.port.readable && mostRecentMessage == null) {
-
-      this.reader = this.port.readable.getReader();
+    while (this.port.readable && mostRecentMessage == null && timeout == false) {
 
       try {
         while (true) {
-          const { value, done } = await this.reader.read();
+
+          // If the previous read timed out we have a reader and a read promise
+          // still active. If the read completed the reader and the readpromise 
+          // need to be recreated
+
+          if (this.reader == null) {
+            this.reader = this.port.readable.getReader();
+          }
+
+          if (this.readPromise == null) {
+            this.readPromise = this.reader.read();
+          }
+
+          const timeoutPromise = new Promise((resolve, reject) => {
+            this.timeoutID = setTimeout(resolve, this.timeout, 'timeout');
+          });
+
+          const { value, done } = await Promise.race([this.readPromise, timeoutPromise]);
+
+          if (value === undefined) {
+            // The timout has won the race - leave the read hanging and 
+            // abandon this loop.
+            // The code that called us can retry by sending another request
+            console.log("Timeout");
+            timeout = true;
+            break;
+          }
+
+          // Clear the timeout timer
+          clearTimeout(this.timeoutID);
+
+          // Clear down the reader that we have just successfully used
+          // so that the loop will make another one. 
+          // Note that if we timeout these statements are not performed
+          // and the existing reader and promise is used next time 
+          // getSLIPpacket is called
+
+          this.reader.releaseLock();
+          this.reader = null;
+          this.readPromise = null;
+
           if (done) {
             console.log("Port is done.");
             // reader.cancel() has been called.
+            // readable will be false and so the read will end
             break;
           }
+
+          // We have a packet of data - add it to our partial packet
+
           for (let b of value) {
-            if (partialPacket == null) {
+            if (this.partialPacket == null) {
               // Start of a packet
               if (b == 0xc0) {
-                partialPacket = [];
+                this.partialPacket = [];
               }
             }
             else {
@@ -62,13 +110,13 @@ class SerialManager {
                 this.in_escape = false;
 
                 if (b == 0xdc) {
-                  partialPacket.push(0xc0);
+                  this.partialPacket.push(0xc0);
                 }
                 else if (b == 0xdd) {
-                  partialPacket.push(0xdb);
+                  this.partialPacket.push(0xdb);
                 }
                 else {
-                  partialPacket = null;
+                  this.partialPacket = null;
                 }
               }
               else {
@@ -85,20 +133,25 @@ class SerialManager {
                   // the start of the next one. )
                   // If this is the case the partial packet will 
                   // be empty. Only send non-empty packets
-                  if (partialPacket.length > 0) {
-                    console.log("Got SLIP:" + partialPacket);
-                    this.lineBuffer.push(partialPacket);
-                    mostRecentMessage = partialPacket;
-                    partialPacket = null;
+                  if (this.partialPacket.length > 0) {
+                    console.log("Got SLIP:" + this.partialPacket);
+                    this.lineBuffer.push(this.partialPacket);
+                    mostRecentMessage = this.partialPacket;
+                    this.partialPacket = null;
                   }
                 }
                 else {
-                  partialPacket.push(b);
+                  this.partialPacket.push(b);
                 }
               }
             }
           }
-          console.log("Loop done");
+
+          console.log("Read loop done");
+
+          // this will break out of the loop as soon as it gets a message
+          // If the data block received from the serial port contained multiple
+          // messages they will have been pushed onto the linebuffer
           if (mostRecentMessage != null) {
             console.log("breaking out");
             break;
@@ -106,15 +159,27 @@ class SerialManager {
         }
       } catch (error) {
         console.log("Serial error:" + error.message);
+        // Something bad happend during the read
+        // We need to clear down the reader so that it can be 
+        // restarted next time.
+        this.reader.releaseLock();
+        this.reader = null;
+        this.readPromise = null;
       } finally {
         // Allow the serial port to be closed later.
-        this.reader.releaseLock();
       }
     }
 
     if (!this.port.readable) {
       console.log("port is no longer readable");
     }
+
+    if (timeout) {
+      // return a null
+      console.log("Timed out");
+      return null;
+    }
+
     // return the oldest line
     return this.lineBuffer.shift();
   }
@@ -159,9 +224,9 @@ class SerialManager {
 
   async sendBytes(bytes) {
     let buffer = "";
-    let limit = bytes.length<10?bytes.length:10;
-    for(let i=0;i<limit;i++){
-      buffer = buffer + bytes[i].toString(10)+":"+bytes[i].toString(16)+"  ";
+    let limit = bytes.length < 10 ? bytes.length : 10;
+    for (let i = 0; i < limit; i++) {
+      buffer = buffer + bytes[i].toString(10) + ":" + bytes[i].toString(16) + "  ";
     }
     console.log(`Sending:${buffer}...`);
     const writer = this.port.writable.getWriter();
@@ -234,7 +299,7 @@ class SerialManager {
   }
 
   async startTerminal(messageReceiver) {
-    this.keepReading=true;
+    this.keepReading = true;
     this.messageReceiver = messageReceiver;
     await this.pumpReceivedCharacters(messageReceiver);
   }

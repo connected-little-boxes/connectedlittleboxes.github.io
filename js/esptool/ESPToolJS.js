@@ -263,33 +263,35 @@ class ESPToolJS {
 
         for (let retry = 0; retry < 5; retry++) {
 
+            this.serialManager.flushbuffer();
+
+            console.log(`  Command send retry: ${retry+1}`);
+
             let commandMessage = this.packCommand(params.op, params.dataBlock, params.check);
 
             let slipEncodedCommand = this.packSlip(commandMessage);
 
-            if (params.op == ESPToolJS.ESP_SYNC) {
-                // send an extra sync command to get the baud rate sorted..
-                await this.serialManager.sendBytes(slipEncodedCommand);
-                this.delay(100);
-            }
-
             let value = await this.serialManager.sendAndGetResponse(slipEncodedCommand);
 
+            if(value == null){
+                console.log("      no response before timeout");
+                continue;
+            }
 
             if (value.length < 8) {
-                console.log("block too short");
+                console.log("      block too short");
                 continue;
             }
 
             let response = this.unpackCommand(value);
 
             if (response.resp != 1) {
-                console.log("response not 1");
+                console.log("      response not 1");
                 continue;
             }
 
             if (response.opRet != params.op) {
-                console.log(`invalid response opcode sent:${params.op} received:${response.opRet}`);
+                console.log(`      invalid response opcode sent:${params.op} received:${response.opRet}`);
                 continue;
             }
 
@@ -299,6 +301,11 @@ class ESPToolJS {
 
             return { val: response.val, data: trimmedData };
         }
+
+        // after 5 retries we give up and return null results
+        console.log("Command failed");
+
+        return {val:null, data:null};
     }
 
     async check_command(params) {
@@ -308,6 +315,11 @@ class ESPToolJS {
         //  Returns the "result" of a successful command.
 
         let { val, data } = await this.command(params);
+
+        if(data==null){
+            // the command was not sent successfully 
+            return null;
+        }
 
         //  things are a bit weird here, bear with us
         //  the status bytes are the last 2/4 bytes in the data (depending on chip)
@@ -411,7 +423,6 @@ class ESPToolJS {
         }
 
         this.logMessage(`Got sync`);
-        console.log(`Got sync`);
 
         this.logMessage(`Getting chip version`);
 
