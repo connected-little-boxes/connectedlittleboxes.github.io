@@ -114,47 +114,92 @@ Fixed Navigation
 End Fixed Navigation
 ==================================== -->
 
-
-  <div class="hero-slider">
-    <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/tempsensor.jpg);">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <h1 data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".1">Temperature Sensor<br></h1>
-            <p data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".5">Create a temperature sensor from scratch using nothing but your browser.</p>
-            <a data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".8" class="btn btn-main"
-              href="tempsensorbox.html">Find out more</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/slider1.jpg);">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">Boxing Clever</h1>
-            <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Build your own network of
-              intelligent devices<br></p>
-            <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn btn-main"
-              href="overview.html">Find out more</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/slider2.jpg);">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <h1 data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".1">Your name in lights <br></h1>
-            <p data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".5">Create customised lights for you
-              and those you care about.</p>
-            <a data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".8" class="btn btn-main"
-              href="nameinlights.html">Find out more</a>
-          </div>
-        </div>
+<section class="single-page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Welcome</h2>
       </div>
     </div>
   </div>
+</section>
+
+<section class="about-shot-info section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mt-20">
+        <h2>Towards a Connected Community</h2>
+        <p>The Connected Little Boxes project is managed by Connected Humber CIC, a community interest company based in Hull in the UK. The aim of the project is to make it very, very easy to make small sensors and controls that can bind to data and then transmit or display it. </p>
+        <p>All the devices run the same software, so you don't have to build custom firmware versions for every application. You can send configuration commands over the network 
+          so that devices can be managed remotely.</p>
+        <p> There are full circuit diagrams and parts lists for boxes and a complete set
+          of easy to print case designs.
+        </p>
+				<a href="projects.html" class="btn btn-main mt-20">View Projects</a>
+				<a href="gettingstarted.html" class="btn btn-main mt-20">Get Started</a>
+      </div>
+      <div class="col-md-6">
+        <img class="img-fluid" src="images/boxes/box1.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+	<!--
+Start About Section
+==================================== -->
+<section class="about-2 section" id="about">
+	<div class="container">
+		<div class="row">
+
+			<!-- section title -->
+			<div class="col-12">
+				<div class="title text-center">
+					<h2>Box Options</h2>
+					<p>You can get started with nothing more than an ESP8266 or ESP32 device and some neopixels. Then you can add other hardware that your box can control. The range of 
+            hardware supported is growing all the time. The boxes are connected using WiFi and MQTT. A sensor input on one box can cause an action on any other box.
+          </p>
+					<div class="border"></div>
+				</div>
+			</div>
+			<!-- /section title -->
+
+			<div class="col-md-6">
+				<img src="images/index/boxes.jpg" class="img-fluid" alt="">
+			</div>
+			<div class="col-md-6">
+				<ul class="checklist">
+					<li>Neopixels, in a strand or in a grid</li>
+					<li>Push button/digital input</li>
+					<li>PIR sensor</li>
+					<li>BME280 environmental sensor</li>
+					<li>Servo</li>
+					<li>Rotary encoder</li>
+					<li>Potentiometer/Analogue input</li>
+          <li>MAX 7219 text display</li>
+          <li>Serial printer</li>
+				</ul>
+			</div>
+		</div> <!-- End row -->
+	</div> <!-- End container -->
+</section> <!-- End section -->
+
+<section class="about-shot-info section-sm ">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mt-20">
+        <h2>Browser Based Setup</h2>
+        <p>You don't need to install any software on your PC or laptop to be able to program and configure your devices. </p>
+        <p>You can program your devices from within your browser. We also have a browser based terminal you can use to configure your device once you've programmed it. 
+        </p>
+				<a href="simpleterm.html" class="btn btn-main mt-20">Simple Terminal</a>
+      </div>
+      <div class="col-md-6">
+        <img class="img-fluid" src="images/index/webconfig.jpg">
+      </div>
+    </div>
+  </div>
+</section>
 
   <footer id="footer" class="bg-one">
     <div class="top-footer">
@@ -198,9 +243,6 @@ End Fixed Navigation
     =====================================-->
   <!-- Main jQuery -->
   <script src="plugins/jquery/jquery.min.js"></script>
-  <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
-  <script src="plugins/google-map/gmap.js"></script>
 
   <!-- Form Validation -->
   <script src="plugins/form-validation/jquery.form.js"></script>
