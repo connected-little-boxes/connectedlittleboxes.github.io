@@ -405,21 +405,28 @@ class ESPToolJS {
         let syncError = "";
 
         for (let i = 0; i < 5; i++) {
-            this.logMessage(`  attempt: ${i}`);
+            this.logMessage(`  attempt: ${i+1}`);
             try {
                 let syncReply = await this.sync();
-                syncOK = true;
-                break;
+                if(syncReply == null){
+                    this.logMessage("  No response from the device");
+                }
+                else
+                {
+                    syncOK=true;
+                    break;
+                }
             }
             catch (error) {
                 console.log(`Sync failed:${error}`);
-                syncError += `  Sync failed: ${error.message}\n`;
+                this.logMessage(`  Sync error:${error.message}`);
                 this.delay(500);
             }
         }
 
         if (!syncOK) {
-            return { worked: false, syncError };
+            this.logMessage(`Sync abandoned`);
+            return null;
         }
 
         this.logMessage(`Got sync`);

@@ -13,6 +13,7 @@
     <p>
         <button class="menuButton" onclick="doConnect();">Connect</button>
         <button class="menuButton" onclick="doDisconnect();">Disconnect</button>
+        <button class="menuButton" onclick="doHelp();">Help</button>
     </p>
 
     <script>
@@ -59,6 +60,12 @@
             await tempViewer.sendText(text);
             input.value = "";
         }
+
+        function doHelp(){
+            let url="tempsensorbox.html"
+            window.open(url, '_blank');
+        }
+
     </script>
 </body>
 </html>
