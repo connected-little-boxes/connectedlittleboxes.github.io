@@ -236,15 +236,18 @@ End Fixed Navigation
       <div class="row">
         <div class="col-md-6 mt-20">
           <h2>Configure your device</h2>
-          <p>You can do all the configuration from this terminal. You type a command and send it to the box which then acts on the command. 
+          <p>You can do all the configuration from this terminal. You type a command and send it to the box which then
+            acts on the command.
             There are commands to store setting values in a box
-            and also commands to tell a box what to do in response to an event. Press Connect to connect the terminal to your box.
+            and also commands to tell a box what to do in response to an event. Press Connect to connect the terminal to
+            your box.
           </p>
           <p>
             <button class="menuButton" onclick="doTerminal();">Connect</button>
           </p>
           <h2>Setup WiFi</h2>
-          <p>To connect a box to your WiFi you need to set the name of the access point and the password for the network. You do this 
+          <p>To connect a box to your WiFi you need to set the name of the access point and the password for the
+            network. You do this
             by assiging values to two settings:
           </p>
           <pre>
@@ -255,7 +258,8 @@ End Fixed Navigation
             These credentials will be stored securely in the box.
           </p>
           <h2>Setup MQTT</h2>
-          <p>If you want your box to be able to connect to other boxes you will have to enter some MQTT creditials. You can use
+          <p>If you want your box to be able to connect to other boxes you will have to enter some MQTT creditials. You
+            can use
             the oppen HiveMQTT server by making the following setting:
           </p>
           <pre>
@@ -275,9 +279,11 @@ End Fixed Navigation
         </div>
         <div class="col-md-6">
           <h2>Box output</h2>
-          <textarea class="logOutput" rows="30" cols="60" id="terminalOutput" onkeypress="doTerminalOutputKeypress();"></textarea>
+          <textarea class="logOutput" rows="30" cols="60" id="terminalOutput"
+            onkeypress="doTerminalOutputKeypress();"></textarea>
           <h2>Your input</h2>
-          <textarea class="logOutput" rows="1" cols="60" id="terminalInput" onkeypress="doTerminalInputKeypress(event);"></textarea>
+          <textarea class="logOutput" rows="1" cols="60" id="terminalInput"
+            onkeypress="doTerminalInputKeypress(event);"></textarea>
           <p>
             <button class="menuButton" onclick="doSend();">Send</button>
           </p>
@@ -291,33 +297,53 @@ End Fixed Navigation
       <div class="row">
         <div class="col-md-6 mt-20">
           <h2>What to do next</h2>
-          <p>Congratulations. You now have a Connected Little Box that is connected to your network. For ideas of what to do with it, take a 
+          <p>Congratulations. You now have a Connected Little Box that is connected to your network. For ideas of what
+            to do with it, take a
             look in our projects folder <a href="projects.html">here</a>.
           </p>
-          <p>You can find a complete user manual for all the commands you can use with your Connected Little Box 
-            <a href="https://github.com/connected-little-boxes/box-code/blob/main/doc/Connected%20Little%20Box%20Reference.pdf">here.</a></p>
+          <p>You can find a complete user manual for all the commands you can use with your Connected Little Box
+            <a
+              href="https://github.com/connected-little-boxes/box-code/blob/main/doc/Connected%20Little%20Box%20Reference.pdf">here.</a>
+          </p>
         </div>
         <div class="col-md-6">
-          <a href="https://github.com/connected-little-boxes/box-code/blob/main/doc/Connected%20Little%20Box%20Reference.pdf">
-            <img class="img-fluid" src="images/getStarted/Manual.png" alt=""> </a>        
-          </div>
+          <a
+            href="https://github.com/connected-little-boxes/box-code/blob/main/doc/Connected%20Little%20Box%20Reference.pdf">
+            <img class="img-fluid" src="images/getStarted/Manual.png" alt=""> </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="about-shot-info section-sm bg-gray">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 mt-20">
-					<h2>Problems?</h2>
-					<p>If you get timeout messages in the Flash display your device might not be connected, or you might
-            have selected the wrong device at the 'Get Connected' step. Try again with a different device. If you are not using 
-            a Wemos device you might need to press the Reset button on the device (along with a 'program' button) to get the 
-            device into the bootloader state. Do this while the device is connected and after you have clicked the Flash button.
-					</p>
-				</div>
-		</div>
-	</section>
+  <section class="about-2 section section-sm bg-gray">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mt-20">
+          <h2>Problems?</h2>
+          <h3>Strange messages about WiFi connections</h3>
+          <p>A newly created device will try to establish a WiFi connection when it starts. You might see some messages about this.</p>
+          <h3>Device not connecting</h3>
+          <p>If you get timeout messages in the Flash display your device might not be connected, or you might
+            have selected the wrong device at the 'Get Connected' step. Try again with a different device. If you are
+            not using
+            a Wemos device you might need to press the Reset button on the device (along with a 'program' button) to get
+            the
+            device into the bootloader state. Do this while the device is connected and after you have clicked the Flash
+            button.
+          </p>
+          <h3>Supported devices</h3>
+          <p>If you don't see the start messages when your newly flashed device starts up it might be that your device
+            is not compatible with the
+            binary images. These are the devices that we know work at the moment. More will 
+            be added as we test them and build images. 
+          </p>
+          <ul class="checklist">
+            <li>Wemos D1 Mini ESP8266</li>
+            <li>Wemos D1 Mini ESP32</li>
+          </ul>
+        </div>
+      </div>
+  </section>
 
   <footer id=" footer" class="bg-one">
     <div class="top-footer">
@@ -420,7 +446,7 @@ End Fixed Navigation
 
       if (!worked) {
         alert(message);
-        connected=false;
+        connected = false;
         return false;
       }
       else {
@@ -428,12 +454,12 @@ End Fixed Navigation
         return true;
       }
     }
-    
-    function doTerminalOutputKeypress(){
+
+    function doTerminalOutputKeypress() {
       alert("Type your input into the window below the terminal output");
     }
 
-    async function doTerminalInputKeypress(event){
+    async function doTerminalInputKeypress(event) {
       if (event.keyCode == 13) {
         await doSend();
       }
@@ -459,7 +485,7 @@ End Fixed Navigation
       if (!worked) {
         alert(message);
       }
-      connected=false;
+      connected = false;
     }
 
     async function doConnect() {

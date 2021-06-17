@@ -129,13 +129,19 @@ End Fixed Navigation
 			<div class="row">
 				<div class="col-md-6 mt-20">
 					<h2>Electronics</h2>
-					<p>Our boxes don't contain a lot of hardware. Most of the time an external device is just connected directly to the pins of whatever processor you are using.
-						However, it is useful to know which pin you wire to which device. We have a standard circuit configuration for boxes and connected peripherals which you 
-						can see on the right. Larger verions are bundled in with the hardware printable designs. 
-					</p>	 
+					<p>The circuits and designs here are for the WEMOS D1 Mini ESP8266 device. The pin numbers in the software map to the numbers of the ESP8266 device, not 
+						the identification pins on the WEMOS board. In other words, if you use these diagrams the devices will just work with the default pin 
+						settings in the software. If you want to use different pins you can change the settings of your device to match.
+					</p>	
+					<p>
+						On the right you can see the standard circuit for a device. Note that you don't have to have all these connected at once, although you could. 
+					</p> 
+					<p>
+						You can find more hardware details, including designs for 3D printable cases, <a href="https://github.com/connected-little-boxes/box-hardware">here  </a>. 
+					</p>
 				</div>
 				<div class="col-md-6">
-					<img class="img-fluid" src="images/hardware/Standard Circuit.png">
+					<img class="img-fluid" src="images/hardware/wemos-circuits/wemos-standard.png">
 				</div>
 			</div>
 		</div>
@@ -145,13 +151,16 @@ End Fixed Navigation
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 mt-20">
-					<h2>Get the circuits</h2>
-					<p>You can find the circuit diagrams nestling snugly alongside our hardware designs which you can find <a href="https://github.com/connected-little-boxes/box-hardware">here</a>. 
-					<p>We will be adding a bill of materials for each device, along with build instructions. 
+					<h2>BME280</h2>
+					<p>Adding a BME280 allows a box to sense temperature, air pressure and humidity. It can then use these values locally or send them to another box for display or to trigger
+						a servo.  
+					</p>
+					<p>Note that the BME280 sensor must use the indicated pins. If you want to use the PIR senor as well as the BME280 you can connect the PIR sensor to a different pin 
+						and then change the configuration of the device.   
 					</p>
 				</div>
 				<div class="col-md-6">
-					<img class="img-fluid" src="images/hardware/Dot Matrix text.png" alt="">
+					<img class="img-fluid" src="images/hardware/wemos-circuits/wemos-BME280.png" alt="">
 				</div>
 			</div>
 		</div>
@@ -161,16 +170,48 @@ End Fixed Navigation
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 mt-20">
-					<h2>Flexibility Built In</h2>
-					<p>Of course, there's nothing stopping you from doing your 
-						own thing. If you absolutely must connect your leds to GPIO6 then you can do that, and then just configure our software to tell it to use a 
-						that pin. And don't feel constrained to build boxes like ours either. If you want to make a box that does everything, or just one thing, then
-						go for it. 
-						<p>Every box can be custom configured for its role and you can change the configuration any time you like, if you find a use for a few more pins..</p>
+					<h2>MAX7219</h2>
+					<p>A MAX7219 dot matrix display can be used to display messages and sensor values. The software supports two different font sizes and scrolling text. 
+					</p>
+					<p>
+						If you want to use a MAX7219 display at the same time as a BME280 you must connect them both to the same pins. They are using the I2C connection and 
+						should be able to share this.
 					</p>	 
 				</div>
 				<div class="col-md-6">
-					<img class="img-fluid" src="images/hardware/in the box.png" alt="">
+					<img class="img-fluid" src="images/hardware/wemos-circuits/wemos-MAX7219.png" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="about-shot-info section-sm bg-gray">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 mt-20">
+					<h2>Printer</h2>
+					<p>You can connect a printer with a serial interface and print messages and sensor values.  
+					</p>	 
+				</div>
+				<div class="col-md-6">
+					<img class="img-fluid" src="images/hardware/wemos-circuits/wemos-printer.png" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="about-shot-info section-sm ">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 mt-20">
+					<h2>Analogue Input</h2>
+					<p>The ESP8266 supports a single analogue input which you can use to read a potentiometer value to make
+						a rotary encoder. You can use the value from the encoder to control things like light brightness
+						and servo positions.  
+					</p>	 
+				</div>
+				<div class="col-md-6">
+					<img class="img-fluid" src="images/hardware/wemos-circuits/wemos-ADC.png" alt="">
 				</div>
 			</div>
 		</div>
