@@ -58,6 +58,8 @@ class ESPManager {
         if(!result.worked){
             return result;
         }
+        
+        await this.serialManager.delay(500);
 
         this.logFunction(`Resetting the device`);
 
