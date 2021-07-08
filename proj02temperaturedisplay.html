@@ -7,57 +7,55 @@
 <!--<![endif]-->
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="description" content="Connected Little Boxes Index">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="description" content="Connected Little Boxes Server">
 
-  <meta name="author" content="Rob Miles">
+	<meta name="author" content="Rob Miles">
 
-  <title>Connected Little Boxes</title>
+	<title>Connected Little Boxes Temperature Sensor</title>
 
-  <!-- Mobile Specific Meta
+	<!-- Mobile Specific Meta
   ================================================== -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
 
-  <!-- CSS
+	<!-- CSS
   ================================================== -->
-  <!-- Themefisher Icon font -->
-  <link rel="stylesheet" href="plugins/themefisher-font/style.css">
-  <!-- bootstrap.min css -->
-  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
-  <!-- Lightbox.min css -->
-  <link rel="stylesheet" href="plugins/lightbox2/dist/css/lightbox.min.css">
-  <!-- animation css -->
-  <link rel="stylesheet" href="plugins/animate/animate.css">
-  <!-- Slick Carousel -->
-  <link rel="stylesheet" href="plugins/slick/slick.css">
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+	<!-- Themefisher Icon font -->
+	<link rel="stylesheet" href="plugins/themefisher-font/style.css">
+	<!-- bootstrap.min css -->
+	<link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+	<!-- Lightbox.min css -->
+	<link rel="stylesheet" href="plugins/lightbox2/dist/css/lightbox.min.css">
+	<!-- animation css -->
+	<link rel="stylesheet" href="plugins/animate/animate.css">
+	<!-- Slick Carousel -->
+	<link rel="stylesheet" href="plugins/slick/slick.css">
+	<!-- Main Stylesheet -->
+	<link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body id="body">
 
-  <!--
+	<!--
   Start Preloader
   ==================================== -->
-  <div id="preloader">
-    <div class='preloader'>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-  <!--
+	<div id="preloader">
+		<div class='preloader'>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<!--
   End Preloader
   ==================================== -->
-
-  
 
   <!--
 Fixed Navigation
@@ -88,8 +86,9 @@ Fixed Navigation
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="gettingstarted.html">Getting Started</a>
-                <a class="dropdown-item" href="electronics.html">Electronics</a>
-                <a class="dropdown-item" href="boxes.html">Making boxes</a>
+                <a class="dropdown-item" href="projects.html">Projects</a>
+                <a class="dropdown-item" href="hardware.html">Hardware</a>
+                <a class="dropdown-item" href="software.html">Box Software</a>
                 <a class="dropdown-item" href="server.html">Server Software</a>
               </div>
             </li>
@@ -113,154 +112,187 @@ End Fixed Navigation
 ==================================== -->
 
 
-<section class="single-page-header">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<h2>Temperature Display</h2>
+	<section class="single-page-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2>Temperature Sensor</h2>
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
-<!-- blog details part start -->
-<section class="blog-details section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8">
-        <article class="post">
-          <div id="Name in " class="post-image">
-            <img class="img-fluid w-100" src="projects/proj01nameinlights/images/rob.png" alt="name in lights box">
-          </div>
-          <!-- Post Content -->
-          <div class="post-content">
-            <h3>Name in lights</h3>
-            <p>A Name In Lights box is a custom made enclosure and front panel that can put your name, 
-              or any word you fancy, in lights. The box can contain one or more rows of panels each of which 
-              is lit by a single NeoPixel. The boxes and front panels are designed to be 3D printed and then glued together. The current
-              designs use a Wemos D1 Mini device to control the lights. You can set the colour of each light individually, or you can set 
-              the colour of the entire light with a single command.</p>
-            <p id="gettingstarted">You can set the colours to a random set of colours which move over the lights to give a pleasing effect. You can also create 
-              timed events to change the colour and pattern on the lights. If you have more than one Connected Little Box you can change
-              the colour and pattern on the lights from another box.    
-            </p>
-            <h3>Getting started</h3>
-
-            <!-- blockquote -->
-            <p>You can follow the Getting Started instructions <a href="gettingstarted.html">here</a> to load the latest version of the 
-            Connected Little Boxes software onto your machine and set it up.</p>
-            <p>When the light starts up it will display a pattern of red and green blocks as each of the interal services start up. 
-              Then it will display moving red, green and blue lights that travel across the pixels at different speeds, overlapping and 
-            mixing their colours as they do.</p>
-           <p>You use the Simpleterm program to configure your lights. Make sure that the light unit is plugged into your PC before you start. Then Click
-             the button below to create a Simpleterm tab in your browser. 
-           </p>
-           <p id="displaysize">
-            <button class="menuButton" onclick="doOpenTerminalTab();">Create Simpleterm tab</button>
-          </p>
-          <p>Then click the Connect button in Simpleterm and select the USB connection for your
-            light. </p>
-            <h3>Setting the pixel size of your light</h3>
-            <p>f you want the light to
-              display properly you will have to configure the width and height of the pixel display. There are two settings that determine 
-              the width and height of a light:
-            </p>
-            <pre>
-noofxpixels=12
-noofypixels=1
-            </pre>
-            <p>You can use these commands in Simpleterm to set the width and height of your light.</p>
-            </div>
-        </article>
-      </div>
-      
-      <div class="col-lg-4">
-        <!-- sidebar -->
-        <aside class="sidebar" style="position:fixed">
-          <div class="widget-categories widget">
-            <!-- widget categories list -->
-            <ul class="widget-categories-list">
-              <li>
-                <a href="#gettingstarted">Getting Started</a>
-              </li>
-              <li>
-                <a href="#displaysize">Setting Display Size</a>
-              </li>
-            </ul>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- blog details part end -->
-
- 
-<footer id="footer" class="bg-one">
-	<div class="top-footer">
-	  <div class="container">
-		<div class="row">
-		  <div class="col-sm-3 col-md-3 col-lg-3">
-			<h3>about</h3>
-			<p>Connected Little Boxes are a community outreach project from Connected Humber CIC.</p>
-		  </div>
-		  <!-- End of .col-sm-3 -->
-		  <div class="col-sm-3 col-md-3 col-lg-3">
-			<ul>
-			  <li>
-				<h3>Quick Links</h3>
-			  </li>
-			  <li><a href="https://github.com/connected-little-boxes">Connected Little Boxes on GitHub  </a></li>
-			  <li><a
-				  href="https://mattermost.connectedhumber.org/default/channels/connected-little-boxes">Connected Little Boxes on MatterMost</a>
-			  </li>
-			  <li><a href="mailto:connectedlittleboxes@robmiles.com">email us</a>
-			  </li>
-				</ul>
-		  </div>
-		  <!-- End of .col-sm-3 -->
+	<section class="about-shot-info section-sm">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 mt-20">
+					<h2>Browser connected temperature sensor</h2>
+					<p>Create a sensor that is programmed from the web and sends values directly into your browser. This is an ideal way to get started with Connected Little Boxes.
+						You'll need an ESP32 or ESP8266 and a BME280 device. 
+					</p>
+				</div>
+				<div class="col-md-6">
+					<img class="img-fluid" src="images/hackspace/sensor.jpg">
+				</div>
+			</div>
 		</div>
-	  </div> <!-- end container -->
-	</div>
-	<div class="footer-bottom">
-	  <h5>Copyright 2021. All rights reserved.</h5>
-	</div>
-  </footer> <!-- end footer -->
+	</section>
+	
+	<section class="about-shot-info section-sm bg-gray">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 mt-20">
+					<h2>Wiring Up</h2>
+					<p>You'll need to connect your BME 280 sensor to your device. The sensor uses the I2C (I squared C) connections. The diagram on the 
+						right shows how to connect the sensor to a Wemos D1 mini.
+					</p>
+				</div>
+				<div class="col-md-6">
+					<img class="img-fluid" src="projects/proj02temperaturedisplay/images/wiring.png">
+				</div>
+			</div>
+		</div>
+	</section>
 
-<!-- end Footer Area
-========================================== -->
 
-<!-- 
-Essential Scripts
-=====================================-->
-<!-- Main jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+	<section class="about-shot-info section-sm">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 mt-20">
+					<h2>Setup your sensor</h2>
+					<p>You can find the getting started page <a href="https://www.connectedlittleboxes.com/gettingstarted.html">here</a>
+					</p>
+				</div>
+				<div class="col-md-6">
+					<img class="img-fluid" src="images/hackspace/flash.png">
+				</div>
+			</div>
+		</div>
+	</section>
 
-<!-- Form Validation -->
-<script src="plugins/form-validation/jquery.form.js"></script>
-<script src="plugins/form-validation/jquery.validate.min.js"></script>
 
-<!-- Bootstrap4 -->
-<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-<!-- Parallax -->
-<script src="plugins/parallax/jquery.parallax-1.1.3.js"></script>
-<!-- lightbox -->
-<script src="plugins/lightbox2/dist/js/lightbox.min.js"></script>
-<!-- Owl Carousel -->
-<script src="plugins/slick/slick.min.js"></script>
-<!-- filter -->
-<script src="plugins/filterizr/jquery.filterizr.min.js"></script>
-<!-- Smooth Scroll js -->
-<script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
+	<section class="about-shot-info section-sm bg-gray">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 mt-20">
+					<h2>Configure the sensor</h2>
+					<p>You can find the simple terminal program <a href="https://www.connectedlittleboxes.com/simpleterm.html">here</a>
+					</p>
+					<p>The first thing we need to do is tell our sensor that it contains a BME280 device and restart it. Enter these two commands into the SimpleTerm command window
+						 at the bottom, pressing SEND after each one:
+					</p>
+					<p><strong>bme280sensorfitted=yes<br>
+					restart</strong></p>
+					<p>Now we need to start the temperature transmission to the browser. The command to configure a box to produce JSON formatted temperature information is:</p>
+					<p><strong>{"process":"console","command":"reportjson","text":"starting", "sensor":"bme280","trigger":"tempsec","attr":"temp", "store":"start","id":"temp"}</strong></p>
+					<p>You can cut this text out of this page and paste it directly into the send window of Simpleterm.</p>
+				</div>
+				<div class="col-md-6">
+					<img class="img-fluid" src="images/hackspace/simpleterm.png">
+				</div>	
+			</div>
+		</div>
+	</section>
 
-<!-- Custom js -->
-<script src="js/script.js"></script>
-<script>
-    function doOpenTerminalTab() {
-      var url = 'https://www.connectedlittleboxes.com/simpleterm.html';
-      window.open(url, '_blank');
-    }
-</script>
+	<section class="about-shot-info section-sm">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 mt-20">
+					<h2>View the temperature</h2>
+					<p>You can find the temperature viewing page <a href="tempviewer.html">here</a>
+					</p>
+				</div>
+				<div class="col-md-6">
+					<img class="img-fluid" src="images/hackspace/temp.png">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="about-shot-info section-sm bg-gray">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 mt-20">
+					<h2>Problems?</h2>
+					<p>If you don't see any temperature output, make sure that you have enabled the BME280 sensor as shown above.</p>
+					<p>You can use the status command to check if your BME280 is working. You'll need to scroll back up the status display 
+						but you should see sensor readings on the screenshot.</a>
+					</p>
+					<p>If the sensor is shown as enabled but not working you can try unplugging the device and reconnecting it.</p>
+					<p>If the temperature view page won't connect to your device make sure that you don't have a SimpleTerm session open. The
+						browser can only have one connection to a device at a time. Close your browser and reconnect to the temperature viewer.
+					</p>
+				</div>
+				<div class="col-md-6">
+					<img class="img-fluid" src="projects/proj02temperaturedisplay/images/status.png">
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<footer id="footer" class="bg-one">
+		<div class="top-footer">
+		  <div class="container">
+			<div class="row">
+			  <div class="col-sm-3 col-md-3 col-lg-3">
+				<h3>about</h3>
+				<p>Connected Little Boxes are a community outreach project from Connected Humber CIC.</p>
+			  </div>
+			  <!-- End of .col-sm-3 -->
+			  <div class="col-sm-3 col-md-3 col-lg-3">
+				<ul>
+				  <li>
+					<h3>Quick Links</h3>
+				  </li>
+				  <li><a href="https://github.com/connected-little-boxes">Connected Little Boxes on GitHub  </a></li>
+				  <li><a
+					  href="https://mattermost.connectedhumber.org/default/channels/connected-little-boxes">Connected Little Boxes on MatterMost</a>
+				  </li>
+				  <li><a href="mailto:connectedlittleboxes@robmiles.com">email us</a>
+				  </li>
+					</ul>
+			  </div>
+			  <!-- End of .col-sm-3 -->
+			</div>
+		  </div> <!-- end container -->
+		</div>
+		<div class="footer-bottom">
+		  <h5>Copyright 2021. All rights reserved.</h5>
+		</div>
+	  </footer> <!-- end footer -->
+
+
+	<!-- end Footer Area
+    ========================================== -->
+
+
+
+	<!-- 
+    Essential Scripts
+    =====================================-->
+	<!-- Main jQuery -->
+	<script src="plugins/jquery/jquery.min.js"></script>
+
+	<!-- Form Validation -->
+	<script src="plugins/form-validation/jquery.form.js"></script>
+	<script src="plugins/form-validation/jquery.validate.min.js"></script>
+
+	<!-- Bootstrap4 -->
+	<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+	<!-- Parallax -->
+	<script src="plugins/parallax/jquery.parallax-1.1.3.js"></script>
+	<!-- lightbox -->
+	<script src="plugins/lightbox2/dist/js/lightbox.min.js"></script>
+	<!-- Owl Carousel -->
+	<script src="plugins/slick/slick.min.js"></script>
+	<!-- filter -->
+	<script src="plugins/filterizr/jquery.filterizr.min.js"></script>
+	<!-- Smooth Scroll js -->
+	<script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
+
+	<!-- Custom js -->
+	<script src="js/script.js"></script>
 
 </body>
 

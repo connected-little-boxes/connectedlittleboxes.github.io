@@ -8,7 +8,7 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="description" content="Connected Little Boxes Index">
+  <meta name="description" content="Connected Little Boxes Temperature Display">
 
   <meta name="author" content="Rob Miles">
 
@@ -88,7 +88,6 @@ Fixed Navigation
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="gettingstarted.html">Getting Started</a>
-                <a class="dropdown-item" href="projects.html">Projects</a>
                 <a class="dropdown-item" href="electronics.html">Electronics</a>
                 <a class="dropdown-item" href="boxes.html">Making boxes</a>
                 <a class="dropdown-item" href="server.html">Server Software</a>
@@ -118,61 +117,85 @@ End Fixed Navigation
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2>Projects</h2>
+				<h2>Temperature Display</h2>
 			</div>
 		</div>
 	</div>
 </section>
 
-<section class="posts section">
-	<div class="container">
-		<div class="row">
-			<!-- /section title -->
-			<!-- single blog post -->
-			<article class="col-md-4 col-sm-6 col-xs-12 clearfix ">
-				<div class="post-item">
-					<div class="media-wrapper">
-						<img src="projects/proj01nameinlights/images/name-proj.png" alt="Name in Lights" class="img-fluid">
-					</div>
-					<div class="content">
-						<h3><a href="proj01nameinlights.html">Name in Lights</a></h3>
-						<p>A box with a light for each letter of your name.</p>
-						<a class="btn btn-main" href="proj01nameinlights.html">Read more</a>
-					</div>
-				</div>
-			</article>
-			<!-- /single blog post -->
-			<article class="col-md-4 col-sm-6 col-xs-12 clearfix ">
-				<div class="post-item">
-					<div class="media-wrapper">
-						<img src="projects/proj02temperaturedisplay/images/sensor-proj.jpg" alt="Temperature Display" class="img-fluid">
-					</div>
-					<div class="content">
-						<h3><a href="proj02temperaturedisplay.html">Temperature Display</a></h3>
-						<p>Display the temperature on your browser.</p>
-						<a class="btn btn-main" href="proj02temperaturedisplay.html">Read more</a>
-					</div>
-				</div>
-			</article>
+<!-- blog details part start -->
+<section class="blog-details section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <article class="post">
+          <div id="Name in " class="post-image">
+            <img class="img-fluid w-100" src="projects/proj01nameinlights/images/rob.png" alt="name in lights box">
+          </div>
+          <!-- Post Content -->
+          <div class="post-content">
+            <h3>Name in lights</h3>
+            <p>A Name In Lights box is a custom made enclosure and front panel that can put your name, 
+              or any word you fancy, in lights. The box can contain one or more rows of panels each of which 
+              is lit by a single NeoPixel. The boxes and front panels are designed to be 3D printed and then glued together. The current
+              designs use a Wemos D1 Mini device to control the lights. You can set the colour of each light individually, or you can set 
+              the colour of the entire light with a single command.</p>
+            <p id="gettingstarted">You can set the colours to a random set of colours which move over the lights to give a pleasing effect. You can also create 
+              timed events to change the colour and pattern on the lights. If you have more than one Connected Little Box you can change
+              the colour and pattern on the lights from another box.    
+            </p>
+            <h3>Getting started</h3>
 
-			<!-- /single blog post -->
-			<article class="col-md-4 col-sm-6 col-xs-12 clearfix ">
-				<div class="post-item">
-					<div class="media-wrapper">
-						<img src="projects/proj03twobuttongame/images/twobuttons-proj.jpg" alt="Two Button Game" class="img-fluid">
-					</div>
-					<div class="content">
-						<h3><a href="proj03twobuttongame.html">Two Button Game</a></h3>
-						<p>A simple game spread over multiple devices.</p>
-						<a class="btn btn-main" href="proj03twobuttongame.html">Read more</a>
-					</div>
-				</div>
-			</article>
-		</div>
-	</div>
+            <!-- blockquote -->
+            <p>You can follow the Getting Started instructions <a href="gettingstarted.html">here</a> to load the latest version of the 
+            Connected Little Boxes software onto your machine and set it up.</p>
+            <p>When the light starts up it will display a pattern of red and green blocks as each of the interal services start up. 
+              Then it will display moving red, green and blue lights that travel across the pixels at different speeds, overlapping and 
+            mixing their colours as they do.</p>
+           <p>You use the Simpleterm program to configure your lights. Make sure that the light unit is plugged into your PC before you start. Then Click
+             the button below to create a Simpleterm tab in your browser. 
+           </p>
+           <p id="displaysize">
+            <button class="menuButton" onclick="doOpenTerminalTab();">Create Simpleterm tab</button>
+          </p>
+          <p>Then click the Connect button in Simpleterm and select the USB connection for your
+            light. </p>
+            <h3>Setting the pixel size of your light</h3>
+            <p>f you want the light to
+              display properly you will have to configure the width and height of the pixel display. There are two settings that determine 
+              the width and height of a light:
+            </p>
+            <pre>
+noofxpixels=12
+noofypixels=1
+            </pre>
+            <p>You can use these commands in Simpleterm to set the width and height of your light.</p>
+            </div>
+        </article>
+      </div>
+      
+      <div class="col-lg-4">
+        <!-- sidebar -->
+        <aside class="sidebar" style="position:fixed">
+          <div class="widget-categories widget">
+            <!-- widget categories list -->
+            <ul class="widget-categories-list">
+              <li>
+                <a href="#gettingstarted">Getting Started</a>
+              </li>
+              <li>
+                <a href="#displaysize">Setting Display Size</a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
 </section>
+<!-- blog details part end -->
 
-
+ 
 <footer id="footer" class="bg-one">
 	<div class="top-footer">
 	  <div class="container">
@@ -207,8 +230,6 @@ End Fixed Navigation
 <!-- end Footer Area
 ========================================== -->
 
-
-
 <!-- 
 Essential Scripts
 =====================================-->
@@ -234,6 +255,12 @@ Essential Scripts
 
 <!-- Custom js -->
 <script src="js/script.js"></script>
+<script>
+    function doOpenTerminalTab() {
+      var url = 'https://www.connectedlittleboxes.com/simpleterm.html';
+      window.open(url, '_blank');
+    }
+</script>
 
 </body>
 

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html>
+<!--<![endif]-->
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Connected Little Boxes Two Button Game">
+
+  <meta name="author" content="Rob Miles">
+
+  <title>Connected Little Boxes</title>
+
+  <!-- Mobile Specific Meta
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+
+  <!-- CSS
+  ================================================== -->
+  <!-- Themefisher Icon font -->
+  <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Lightbox.min css -->
+  <link rel="stylesheet" href="plugins/lightbox2/dist/css/lightbox.min.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- Slick Carousel -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body id="body">
+
+  <!--
+  Start Preloader
+  ==================================== -->
+  <div id="preloader">
+    <div class='preloader'>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <!--
+  End Preloader
+  ==================================== -->
+
+
+
+  <!--
+Fixed Navigation
+==================================== -->
+  <header class="navigation fixed-top">
+    <div class="container">
+      <!-- main nav -->
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <!-- logo -->
+        <a class="navbar-brand logo" href="index.html">
+          <img class="logo-default" src="images/logo.png" alt="logo" />
+          <img class="logo-white" src="images/logo-white.png" alt="logo" />
+        </a>
+        <!-- /logo -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item ">
+              <a class="nav-link" href="overview.html">Overview</a>
+            </li>
+            <li class="nav-item dropdown ">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Documentation
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="gettingstarted.html">Getting Started</a>
+                <a class="dropdown-item" href="electronics.html">Electronics</a>
+                <a class="dropdown-item" href="boxes.html">Making boxes</a>
+                <a class="dropdown-item" href="server.html">Server Software</a>
+              </div>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="news.html">News</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="nameinlights.html">Name in lights</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- /main nav -->
+    </div>
+  </header>
+  <!--
+End Fixed Navigation
+==================================== -->
+
+
+  <section class="single-page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Two Button Game</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-shot-info section-sm">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mt-20">
+          <h2>Two Button Game</h2>
+          <p>The Two Button game started as an exercise in portable game development and turned into a multi-player,
+            multi-device experience which uses two
+            Connected Little Boxes to both display the pixel puzzle (determine whether there are more red lights or
+            blue lights) and allow the players to
+            enter the answer (a red button and a blue button). </p>
+          <p>
+            You can find the code for the game and circuits for Raspberry Pi,
+            ESP32 or Raspberry Pi PICO <a href="https://github.com/CrazyRobMiles/pythontwobuttongame">here</a>. The
+            game code includes a version that runs as a server and hosts the game over MQTT for two devices. All the
+            devices must be connected to the same MQTT server. You will need to enter the MQTT server details along with the
+            addresses of the red and blue boxes into the program file.
+            </p>
+
+      </div>
+        <div class="col-md-6">
+          <img class="img-fluid" src="projects/proj03twobuttongame/images/twobuttons-proj.jpg">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-shot-info section-sm bg-gray">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mt-20">
+          <h2>Game Controllers</h2>
+          <p>The game users two controller boxes that each contain a 12 pixel ring and a push button. You can find the design for the controller boxes and the circuit diagrams
+            <a href="https://github.com/connected-little-boxes/box-hardware/tree/main/Led%20Ring%20with%20Button">here</a>.
+          </p>
+          <p>Each Connected Little Box has an unique address which can be used to locate it via MQTT. You will need to obtain the address of each box so that 
+            the server can send messages to that box. The &quot;red&quot; button box will have one address and the &quot;blue&quot; box another. The setting mqttdevicename holds this address and you 
+            can view its value just by entering its name:
+          </p>
+          <p>
+            <strong>&quot;mqttdevicename&quot;</strong>
+          </p>
+        <p> 
+          The boxes will need to be configured to send  messages to the server when their buttons change state. We will set the address of the server in the 
+          next section.  In the sample code below the address used is <strong>clb-host</strong>. Pick the name you want to use and put that in the command in corect place (the &quot;to&quot; attribute)
+          </p>
+          <p>
+            <strong>{&quot;process&quot;:&quot;console&quot;,&quot;command&quot;:&quot;reportjson&quot;,&quot;text&quot;:&quot;starting&quot;,&quot;attr&quot;:&quot;button&quot;,&quot;sensor&quot;:&quot;button&quot;,&quot;trigger&quot;:&quot;changed&quot;,&quot;to&quot;:&quot;clb-host&quot;,&quot;store&quot;:&quot;mqtt&quot;,&quot;id&quot;:&quot;button&quot;}</strong>
+          </p>
+          <p>Be sure to type this correctly. The best approach is to copy the above command and paste it into Notepad, and then copy and paste the text into the Simpleterm command. 
+            Note that it must be entered as one line.</p>
+
+      </div>
+        <div class="col-md-6">
+          <img class="img-fluid" src="projects/proj03twobuttongame/images/boxConfig.png">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="about-shot-info section-sm">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mt-20">
+          <h2>Server software</h2>
+          <p>The server code can run on any machine that supports Python 3.n. Ensure that you have installed the Paho MQTT 
+            library before running the code. The program must be configured with the mqtt device names used by the two 
+            Connected Little Boxes that will be used as game controllers. From the previous step you should have the 
+            names of the two controller boxes. Add them into the code in the positions shown on the right.
+          </p>
+          <p>The mqttdevice setting for the server is the name that the boxes will use to send button pressed
+            information to the server. The red_button and blue_button settings are the addresses of the boxes
+            that will be sendign button information to the game server. 
+          </p>
+      </div>
+        <div class="col-md-6">
+          <img class="img-fluid" src="projects/proj03twobuttongame/images/serverconfig.png">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <footer id="footer" class="bg-one">
+    <div class="top-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3 col-md-3 col-lg-3">
+            <h3>about</h3>
+            <p>Connected Little Boxes are a community outreach project from Connected Humber CIC.</p>
+          </div>
+          <!-- End of .col-sm-3 -->
+          <div class="col-sm-3 col-md-3 col-lg-3">
+            <ul>
+              <li>
+                <h3>Quick Links</h3>
+              </li>
+              <li><a href="https://github.com/connected-little-boxes">Connected Little Boxes on GitHub </a></li>
+              <li><a href="https://mattermost.connectedhumber.org/default/channels/connected-little-boxes">Connected
+                  Little Boxes on MatterMost</a>
+              </li>
+              <li><a href="mailto:connectedlittleboxes@robmiles.com">email us</a>
+              </li>
+            </ul>
+          </div>
+          <!-- End of .col-sm-3 -->
+        </div>
+      </div> <!-- end container -->
+    </div>
+    <div class="footer-bottom">
+      <h5>Copyright 2021. All rights reserved.</h5>
+    </div>
+  </footer> <!-- end footer -->
+
+  <!-- end Footer Area
+========================================== -->
+
+  <!-- 
+Essential Scripts
+=====================================-->
+  <!-- Main jQuery -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+
+  <!-- Form Validation -->
+  <script src="plugins/form-validation/jquery.form.js"></script>
+  <script src="plugins/form-validation/jquery.validate.min.js"></script>
+
+  <!-- Bootstrap4 -->
+  <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+  <!-- Parallax -->
+  <script src="plugins/parallax/jquery.parallax-1.1.3.js"></script>
+  <!-- lightbox -->
+  <script src="plugins/lightbox2/dist/js/lightbox.min.js"></script>
+  <!-- Owl Carousel -->
+  <script src="plugins/slick/slick.min.js"></script>
+  <!-- filter -->
+  <script src="plugins/filterizr/jquery.filterizr.min.js"></script>
+  <!-- Smooth Scroll js -->
+  <script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
+
+  <!-- Custom js -->
+  <script src="js/script.js"></script>
+  <script>
+    function doOpenTerminalTab() {
+      var url = 'https://www.connectedlittleboxes.com/simpleterm.html';
+      window.open(url, '_blank');
+    }
+  </script>
+
+</body>
+
+</html>

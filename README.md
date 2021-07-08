@@ -1,2 +1,4 @@
 # connectedlittleboxes.github.io
-website for the Connected Little Boxes project. You can find the webiste [here](https://www.connectedlittleboxes.com)
+This is the website for the Connected Little Boxes project. 
+
+You can view the contents of the website [here](https://www.connectedlittleboxes.com)
