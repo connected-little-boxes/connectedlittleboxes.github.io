@@ -57,57 +57,57 @@
   End Preloader
   ==================================== -->
 
-  <!--
+	<!--
 Fixed Navigation
 ==================================== -->
-<header class="navigation fixed-top">
-    <div class="container">
-      <!-- main nav -->
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <!-- logo -->
-        <a class="navbar-brand logo" href="index.html">
-          <img class="logo-default" src="images/logo.png" alt="logo" />
-          <img class="logo-white" src="images/logo-white.png" alt="logo" />
-        </a>
-        <!-- /logo -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navigation">
-          <ul class="navbar-nav ml-auto text-center">
-            <li class="nav-item ">
-              <a class="nav-link" href="overview.html">Overview</a>
-            </li>
-            <li class="nav-item dropdown ">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Documentation
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="gettingstarted.html">Getting Started</a>
-                <a class="dropdown-item" href="projects.html">Projects</a>
-                <a class="dropdown-item" href="electronics.html">Electronics</a>
-                <a class="dropdown-item" href="boxes.html">Making boxes</a>
-                <a class="dropdown-item" href="server.html">Server Software</a>
-              </div>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="news.html">News</a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="nameinlights.html">Name in lights</a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <!-- /main nav -->
-    </div>
-  </header>
-  <!--
+	<header class="navigation fixed-top">
+		<div class="container">
+			<!-- main nav -->
+			<nav class="navbar navbar-expand-lg navbar-light">
+				<!-- logo -->
+				<a class="navbar-brand logo" href="index.html">
+					<img class="logo-default" src="images/logo.png" alt="logo" />
+					<img class="logo-white" src="images/logo-white.png" alt="logo" />
+				</a>
+				<!-- /logo -->
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+					aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navigation">
+					<ul class="navbar-nav ml-auto text-center">
+						<li class="nav-item ">
+							<a class="nav-link" href="overview.html">Overview</a>
+						</li>
+						<li class="nav-item dropdown ">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Documentation
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="gettingstarted.html">Getting Started</a>
+								<a class="dropdown-item" href="projects.html">Projects</a>
+								<a class="dropdown-item" href="electronics.html">Electronics</a>
+								<a class="dropdown-item" href="boxes.html">Making boxes</a>
+								<a class="dropdown-item" href="server.html">Server Software</a>
+							</div>
+						</li>
+						<li class="nav-item ">
+							<a class="nav-link" href="news.html">News</a>
+						</li>
+						<li class="nav-item ">
+							<a class="nav-link" href="lights.html">Lights in Names</a>
+						</li>
+						<li class="nav-item ">
+							<a class="nav-link" href="contact.html">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<!-- /main nav -->
+		</div>
+	</header>
+	<!--
 End Fixed Navigation
 ==================================== -->
 
@@ -129,15 +129,20 @@ End Fixed Navigation
 			<div class="row">
 				<div class="col-md-6 mt-20">
 					<h2>Electronics</h2>
-					<p>The circuits and designs here are for the WEMOS D1 Mini ESP8266 device. The pin numbers in the software map to the numbers of the ESP8266 device, not 
-						the identification pins on the WEMOS board. In other words, if you use these diagrams the devices will just work with the default pin 
-						settings in the software. If you want to use different pins you can change the settings of your device to match.
-					</p>	
+					<p>The circuits and designs here are for the WEMOS D1 Mini ESP8266 device. The pin numbers in the
+						software map to the numbers of the ESP8266 device, not
+						the identification pins on the WEMOS board. In other words, if you use these diagrams the
+						devices will just work with the default pin
+						settings in the software. If you want to use different pins you can change the settings of your
+						device to match.
+					</p>
 					<p>
-						On the right you can see the standard circuit for a device. Note that you don't have to have all these connected at once, although you could. 
-					</p> 
+						On the right you can see the standard circuit for a device. Note that you don't have to have all
+						these connected at once, although you could.
+					</p>
 					<p>
-						You can find more hardware details, including designs for 3D printable cases, <a href="https://github.com/connected-little-boxes/box-hardware">here  </a>. 
+						You can find more hardware details, including designs for 3D printable cases, <a
+							href="https://github.com/connected-little-boxes/box-hardware">here </a>.
 					</p>
 				</div>
 				<div class="col-md-6">
@@ -152,11 +157,13 @@ End Fixed Navigation
 			<div class="row">
 				<div class="col-md-6 mt-20">
 					<h2>BME280</h2>
-					<p>Adding a BME280 allows a box to sense temperature, air pressure and humidity. It can then use these values locally or send them to another box for display or to trigger
-						a servo.  
+					<p>Adding a BME280 allows a box to sense temperature, air pressure and humidity. It can then use
+						these values locally or send them to another box for display or to trigger
+						a servo.
 					</p>
-					<p>Note that the BME280 sensor must use the indicated pins. If you want to use the PIR senor as well as the BME280 you can connect the PIR sensor to a different pin 
-						and then change the configuration of the device.   
+					<p>Note that the BME280 sensor must use the indicated pins. If you want to use the PIR senor as well
+						as the BME280 you can connect the PIR sensor to a different pin
+						and then change the configuration of the device.
 					</p>
 				</div>
 				<div class="col-md-6">
@@ -171,12 +178,14 @@ End Fixed Navigation
 			<div class="row">
 				<div class="col-md-6 mt-20">
 					<h2>MAX7219</h2>
-					<p>A MAX7219 dot matrix display can be used to display messages and sensor values. The software supports two different font sizes and scrolling text. 
+					<p>A MAX7219 dot matrix display can be used to display messages and sensor values. The software
+						supports two different font sizes and scrolling text.
 					</p>
 					<p>
-						If you want to use a MAX7219 display at the same time as a BME280 you must connect them both to the same pins. They are using the I2C connection and 
+						If you want to use a MAX7219 display at the same time as a BME280 you must connect them both to
+						the same pins. They are using the I2C connection and
 						should be able to share this.
-					</p>	 
+					</p>
 				</div>
 				<div class="col-md-6">
 					<img class="img-fluid" src="images/hardware/wemos-circuits/wemos-MAX7219.png" alt="">
@@ -190,8 +199,8 @@ End Fixed Navigation
 			<div class="row">
 				<div class="col-md-6 mt-20">
 					<h2>Printer</h2>
-					<p>You can connect a printer with a serial interface and print messages and sensor values.  
-					</p>	 
+					<p>You can connect a printer with a serial interface and print messages and sensor values.
+					</p>
 				</div>
 				<div class="col-md-6">
 					<img class="img-fluid" src="images/hardware/wemos-circuits/wemos-printer.png" alt="">
@@ -205,10 +214,11 @@ End Fixed Navigation
 			<div class="row">
 				<div class="col-md-6 mt-20">
 					<h2>Analogue Input</h2>
-					<p>The ESP8266 supports a single analogue input which you can use to read a potentiometer value to make
+					<p>The ESP8266 supports a single analogue input which you can use to read a potentiometer value to
+						make
 						a rotary encoder. You can use the value from the encoder to control things like light brightness
-						and servo positions.  
-					</p>	 
+						and servo positions.
+					</p>
 				</div>
 				<div class="col-md-6">
 					<img class="img-fluid" src="images/hardware/wemos-circuits/wemos-ADC.png" alt="">
@@ -219,34 +229,36 @@ End Fixed Navigation
 
 	<footer id="footer" class="bg-one">
 		<div class="top-footer">
-		  <div class="container">
-			<div class="row">
-			  <div class="col-sm-3 col-md-3 col-lg-3">
-				<h3>about</h3>
-				<p>Connected Little Boxes are a community outreach project from Connected Humber CIC.</p>
-			  </div>
-			  <!-- End of .col-sm-3 -->
-			  <div class="col-sm-3 col-md-3 col-lg-3">
-				<ul>
-				  <li>
-					<h3>Quick Links</h3>
-				  </li>
-				  <li><a href="https://github.com/connected-little-boxes">Connected Little Boxes on GitHub  </a></li>
-				  <li><a
-					  href="https://mattermost.connectedhumber.org/default/channels/connected-little-boxes">Connected Little Boxes on MatterMost</a>
-				  </li>
-				  <li><a href="mailto:connectedlittleboxes@robmiles.com">email us</a>
-				  </li>
-					</ul>
-			  </div>
-			  <!-- End of .col-sm-3 -->
-			</div>
-		  </div> <!-- end container -->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3 col-md-3 col-lg-3">
+						<h3>about</h3>
+						<p>Connected Little Boxes are a community outreach project from Connected Humber CIC.</p>
+					</div>
+					<!-- End of .col-sm-3 -->
+					<div class="col-sm-3 col-md-3 col-lg-3">
+						<ul>
+							<li>
+								<h3>Quick Links</h3>
+							</li>
+							<li><a href="https://github.com/connected-little-boxes">Connected Little Boxes on GitHub
+								</a></li>
+							<li><a
+									href="https://mattermost.connectedhumber.org/default/channels/connected-little-boxes">Connected
+									Little Boxes on MatterMost</a>
+							</li>
+							<li><a href="mailto:connectedlittleboxes@robmiles.com">email us</a>
+							</li>
+						</ul>
+					</div>
+					<!-- End of .col-sm-3 -->
+				</div>
+			</div> <!-- end container -->
 		</div>
 		<div class="footer-bottom">
-		  <h5>Copyright 2021. All rights reserved.</h5>
+			<h5>Copyright 2021. All rights reserved.</h5>
 		</div>
-	  </footer> <!-- end footer -->
+	</footer> <!-- end footer -->
 
 	<!-- end Footer Area
     ========================================== -->
