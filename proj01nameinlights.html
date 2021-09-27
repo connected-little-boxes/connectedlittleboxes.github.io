@@ -162,7 +162,7 @@ End Fixed Navigation
           <p>Then click the Connect button in Simpleterm and select the USB connection for your
             light. </p>
             <h3>Setting the pixel size of your light</h3>
-            <p>f you want the light to
+            <p>If you want the light to
               display properly you will have to configure the width and height of the pixel display. There are two settings that determine 
               the width and height of a light:
             </p>
@@ -171,7 +171,47 @@ noofxpixels=12
 noofypixels=1
             </pre>
             <p>You can use these commands in Simpleterm to set the width and height of your light.</p>
-            </div>
+            <h3>Things to try</h3>
+            <p>When the light starts running it displays random 'walking' colours. You can use commands to set what the light does:</p>
+            <h4>Set the light colour</h4>
+            <pre>
+{"process":"pixels","command":"setnamedcolour","colourname":"red"}
+            </pre>
+            <p>This command sets the light red.
+            </p>
+            <h4>Make the light twinkle random colours</h4>
+            <pre>
+{"process":"pixels","command":"twinkle"}
+            </pre>
+            <p>This command sets each pixel to a random colour. If the pixels are 'walking' they will appear to twinkle. 
+            </p>
+            <h4>Make the light show a coloured patten</h4>
+            <pre>
+{"process":"pixels","command":"pattern","pattern":"mask","colourmask":"RB"}
+            </pre>
+            <p>This command puts a colour mask onto the pixels. The mask is specified as a string with each letter identifiying the required colour. The command above would 
+              display alternate red and blue lights. Note that this command turns off the 'walking' behaviour. If you want the colours to 'walk' you can select the walking pattern:
+            </p>
+            <pre>
+{"process":"pixels","command":"pattern","pattern":"walking","colourmask":"RB"}
+</pre>
+<h3>Going further</h3>
+<p>There are lots of other features which you can add to your lights. You can find a complete user manual for 
+  all the commands you can use with your Connected Little Box
+  <a
+    href="https://github.com/connected-little-boxes/box-code/blob/main/doc/Connected%20Little%20Box%20Reference.pdf">here.</a>
+</p>
+
+<h4>Store commands</h4>
+<p>You can store commands in a light which are performed when a light first starts running. This means that you can make a light remember the settings that it has. Take a look at 'Command Stores' in the manual</p>
+<h4>Timed events</h4>
+<p>If you connect your light to the internet you can add timed behaviours that can make the light change colour or pattern at different times of day. Take a look at the 'Clock Sensor' 
+  section in the manual.
+</p>
+<h4>Remote control</h4>
+<p>If you configure an MQTT connection for your box it can send messages to other boxes and receive messages from them. So you could make the light go red when someone approaches 
+  your front door or when the temperature gets too high.</p>
+</div>
         </article>
       </div>
       
