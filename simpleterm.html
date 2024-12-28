@@ -22,7 +22,11 @@
     </p>
     <p>
         <button class=" menuButton" onclick="doSend();">Send</button>
+        <button class=" menuButton" onclick="doEscape();">Escape</button>
     </p>
+    <a class="nav-link" href="https://github.com/connected-little-boxes/box-doc/blob/main/Connected%20Little%20Box%20Reference.pdf">Connected Little Boxes documentation</a>
+    <br>
+    <a class="nav-link" href="https://github.com/HullPixelbot/hullpixelbot.github.io/blob/master/HullOS%20Python-ish%20Specification.pdf">Hull Pixelbot documentation</a>
 
     <script>
         var terminal = null;
@@ -63,6 +67,11 @@
             input.value = "";
         }
 
+        async function doEscape() {
+            let esc = "\x1B";;
+            await terminal.sendText(esc);
+        }
+
         function doTerminalOutputKeypress() {
             alert("Type your input into the window below the terminal output");
         }
@@ -70,7 +79,7 @@
             if (event.keyCode == 13) {
                 await doSend();
             }
-        }
+       }
     </script>
 </body>
 
