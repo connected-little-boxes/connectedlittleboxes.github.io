@@ -16,7 +16,6 @@ class SerialManager {
     this.partialPacket = null;
   }
 
-
   async sendAndGetResponse(bytes) {
 
     this.flushbuffer();
